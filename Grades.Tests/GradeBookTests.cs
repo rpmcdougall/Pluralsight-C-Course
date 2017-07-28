@@ -47,6 +47,15 @@ namespace Grades.Tests
             Assert.AreEqual(85.16, result.AverageGrade, .01);
 
         }
+
+        [TestMethod]
+        public void martinLikesPork()
+        {
+            string thingmartinlikes = "pork";
+
+            Assert.AreEqual("pork", thingmartinlikes);
+                
+        }
     }
 
 
