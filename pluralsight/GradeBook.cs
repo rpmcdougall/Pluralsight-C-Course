@@ -51,7 +51,12 @@ namespace Grades
 
                     if (_name != value)
                     {
-                       NameChanged(_name,value);
+
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.ExistingName = _name;
+                        args.NewName = value;
+
+                        NameChanged(this, args); //this will reference gradebook object in this case, similar to pipleline in PS?
                     }
 
                     _name = value;
