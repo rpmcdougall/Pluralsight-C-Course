@@ -20,6 +20,8 @@ namespace Grades
 
             book.Name = "Ryan's Grade Book";
             book.Name = "Some other book";
+            //made event, wont allow null to interfere with other delegates
+
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
