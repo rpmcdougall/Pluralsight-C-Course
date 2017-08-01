@@ -25,7 +25,15 @@ namespace Grades
             catch(ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            catch(NullReferenceException)
+            {
+                Console.WriteLine("Kaboom!");
 
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("Error: no error");
             }
             // book.Name = null;
 
