@@ -15,33 +15,30 @@ namespace Grades
 
             GradeBook book = new GradeBook();
 
-            book.NameChanged += OnNameChanged;
+            
           
 
-            book.Name = "Ryan's Grade Book";
-            book.Name = "Some other book";
-            //made event, wont allow null to interfere with other delegates
 
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
 
             GradeStatistics stats = book.ComputeStatistics();
-            Console.WriteLine(book.Name);
-            Console.WriteLine("Average Grade: " + stats.AverageGrade);
-            Console.WriteLine("Highest Grade: " + (int)stats.HighestGrade);
-            Console.WriteLine("Lowest Grade: " + stats.LowestGrade);
-
-            WriteResult("Blah", stats.LowestGrade);
+        
+            WriteResult("Average Grade: " , stats.AverageGrade);
+            WriteResult("Highest Grade: " , stats.HighestGrade);
+            WriteResult("Lowest Grade: " , stats.LowestGrade);
+            WriteResult("Grade", stats.LetterGrade);
+            
            
         }
 
-        static void OnNameChanged(object sender, NameChangedEventArgs args)
-        {
-            Console.WriteLine($"Grade book changing name from {args.ExistingName} to {args.NewName}"); //referenced events
-        }
 
-        
+        static void WriteResult(string description, string result)
+        {
+            Console.WriteLine(description + ": " + result);
+
+        }
 
         static void WriteResult(string description, int result)
         {
