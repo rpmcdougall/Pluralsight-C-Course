@@ -16,6 +16,35 @@ namespace Grades
 
         }
 
+
+        public string Description
+        {
+            get
+            {
+                string result;
+                switch (LetterGrade)
+                {
+                    case "A":
+                        result = "Excellent";
+                        break;
+                    case "B":
+                        result = "Meh";
+                        break;
+                    case "C":
+                        result = "Ugh";
+                        break;
+                    case "D":
+                        result = "Hrrrrrrrrmph";
+                        break;
+                    default:
+                        result = "GaaaaaaaaaaH";
+                        break;
+                }
+                return result;
+            }
+
+        }
+
         public string LetterGrade
         {
             get

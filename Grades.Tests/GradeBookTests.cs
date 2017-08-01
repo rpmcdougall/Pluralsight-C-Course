@@ -48,14 +48,7 @@ namespace Grades.Tests
 
         }
 
-        [TestMethod]
-        public void martinLikesPork()
-        {
-            string thingmartinlikes = "pork";
-
-            Assert.AreEqual("pork", thingmartinlikes);
-                
-        }
+        
     }
 
 
