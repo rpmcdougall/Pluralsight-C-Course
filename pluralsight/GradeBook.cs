@@ -16,15 +16,15 @@ namespace Grades
 
         public GradeStatistics ComputeStatistics()
         {
-             GradeStatistics stats = new GradeStatistics();
+            GradeStatistics stats = new GradeStatistics();
 
 
             float sum = 0;
 
-            foreach(float grade in grades)
+            foreach (float grade in grades)
             {
 
-                stats.HighestGrade = Math.Max(grade,stats.HighestGrade);
+                stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
                 stats.LowestGrade = Math.Min(grade, stats.LowestGrade);
                 sum += grade;
             }
@@ -35,7 +35,7 @@ namespace Grades
 
         public void AddGrade(float grade)
         {
-            grades.Add(grade);    
+            grades.Add(grade);
         }
 
         public string Name
@@ -46,21 +46,23 @@ namespace Grades
             }
             set
             {
-                if(!String.IsNullOrEmpty(value))
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name cannot be null or empty");
+                }
+
+                if (_name != value)
                 {
 
-                    if (_name != value)
-                    {
+                    NameChangedEventArgs args = new NameChangedEventArgs();
+                    args.ExistingName = _name;
+                    args.NewName = value;
 
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.ExistingName = _name;
-                        args.NewName = value;
-
-                        NameChanged(this, args); //this will reference gradebook object in this case, similar to pipleline in PS?
-                    }
-
-                    _name = value;
+                    NameChanged(this, args); //this will reference gradebook object in this case, similar to pipleline in PS?
                 }
+
+                _name = value;
+
             }
         }
 
